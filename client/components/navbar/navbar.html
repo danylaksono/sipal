@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse navbar-static-top" ng-controller="NavbarController">
+<div ng-show="nav.isLoggedIn()" class="navbar navbar-inverse navbar-static-top" ng-controller="NavbarController">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
@@ -7,23 +7,64 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">sipal</a>
+      <a ng-hide="nav.sidenavOpened" class="btn btn-lg" ng-click="nav.openNav()">
+        <i class="navbar-icon fa fa-tasks fa-2x pull-left"></i>
+      </a>
+      <a ng-show="nav.sidenavOpened" class="btn btn-lg" ng-click="nav.closeNav()">
+        <i class="navbar-icon fa fa-caret-left fa-2x pull-left"></i>
+      </a>
+
+      <!--a href="/" class="navbar-brand">sipal</a-->
     </div>
     <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li ng-repeat="item in nav.menu" ui-sref-active="active">
+        <!--li ng-repeat="item in nav.menu" ui-sref-active="active">
             <a ui-sref="{{item.state}}">{{item.title}}</a>
         </li>
-        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
+        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Administrasi</a>
+      </li-->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
-        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
-        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
-        <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
+        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a class="btn btn-lg" ui-sref="signup"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Daftar</a></li>
+        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a class="btn btn-lg" ui-sref="login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Masuk</a></li>
+        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Selamat Datang {{ nav.getCurrentUser().name }}</p> </li>
+        <!--li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li-->
+        <li ng-show="nav.isLoggedIn()"><a class="btn btn-lg" ui-sref="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Keluar</a></li>
       </ul>
     </div>
+  </div>
+</div>
+
+
+
+
+<!--- Sidenav --->
+
+<div class="sidenav" ng-show="nav.sidenavOpened">
+  <div class="container">
+      <div class="row">
+        <button type="button" class="btn btn-primary btn-outline btn-lg btn-block">Block level button</button>
+        <button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Notifications
+            </label>
+          </div>
+          <p class="help-block">Notify me about updates to apps or games that I've downloaded</p>
+        </div>
+        <div class="form-group">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" checked=""> Auto-updates
+            </label>
+          </div>
+          <p class="help-block">Auto-update apps over wifi only</p>
+        </div>
+      </div>
   </div>
 </div>

@@ -32,7 +32,7 @@ html {
 }
 
 .navbar .container .navbar-header{
-	margin-left:30px;
+	//margin-left:30px;
 }
 
 
@@ -46,5 +46,6 @@ html {
 @import 'main/main';
 @import '../components/footer/footer';
 @import '../components/modal/modal';
+@import '../components/navbar/navbar';
 @import '../components/oauth-buttons/oauth-buttons';
 /* endinject */

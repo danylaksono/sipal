@@ -8,6 +8,6 @@ angular.module('sipalApp', ['sipalApp.auth', 'sipalApp.admin',
   ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
-
+    //$.material.init()
     $locationProvider.html5Mode(true);
   });
