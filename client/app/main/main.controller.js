@@ -13,17 +13,36 @@
       this.map = {
         layers: {
           baselayers: {
-            osm: {
-              name: 'openstreetmap',
+            Esri_OceanBasemap: {
+              name: 'ESRI Ocean',
               type: 'xyz',
-              url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+              url: 'http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}',
+              layerOptions: {
+                showOnSelector: false,
+                attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+                maxZoom: 13
+              }
+            }
+          },
+          overlays: {
+            OpenMapSurfer_AdminBounds: {
+              name: 'OpenMapSurfer',
+              type: 'xyz',
+              url: 'http://korona.geog.uni-heidelberg.de/tiles/adminb/x={x}&y={y}&z={z}',
+              layerOptions: {
+                checked: true,
+                showOnSelector: false,
+                maxZoom: 19,
+                attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              }
             }
           }
+
         },
         center: {
-          lat: 3.59520,
-          lng: 98.67222,
-          zoom: 8
+          lat: -5.266007882805485,
+          lng: 119.44335937499999,
+          zoom: 5
         },
         controls: {},
         markers: {},
@@ -72,7 +91,7 @@
       controller: MainController
     })
     .config(function($logProvider) {
-      $logProvider.debugEnabled(true);
+      $logProvider.debugEnabled(false);
     });
 
 })();
