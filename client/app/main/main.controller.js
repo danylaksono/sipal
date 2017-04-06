@@ -9,6 +9,36 @@
       this.socket = socket;
       this.awesomeThings = [];
 
+
+      this.map = {
+        layers: {
+          baselayers: {
+            osm: {
+              name: 'openstreetmap',
+              type: 'xyz',
+              url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+            }
+          }
+        },
+        center: {
+          lat: 3.59520,
+          lng: 98.67222,
+          zoom: 8
+        },
+        controls: {},
+        markers: {},
+        events: {
+          marker: {
+            enable: [],
+            logic: 'emit'
+          },
+          map: {
+            enable: ['context'],
+            logic: 'emit'
+          }
+        }
+      };
+
       $scope.$on('$destroy', function() {
         socket.unsyncUpdates('thing');
       });
@@ -40,5 +70,9 @@
     .component('main', {
       templateUrl: 'app/main/main.html',
       controller: MainController
+    })
+    .config(function($logProvider) {
+      $logProvider.debugEnabled(true);
     });
+
 })();

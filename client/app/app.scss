@@ -15,8 +15,33 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
   padding: 0.2em 0;
 }
 
+body, html {
+    height: 100%;
+}
+
+html {
+  position: relative;
+}
+
+
+
+.navbar .container {
+	width:100%;
+	font-size:1.2em;
+	padding-right:50px;
+}
+
+.navbar .container .navbar-header{
+	margin-left:30px;
+}
+
+
+
+
 // Component styles are injected through grunt
 /* inject:scss */
+@import 'account/login/login';
+@import 'account/signup/signup';
 @import 'admin/admin';
 @import 'main/main';
 @import '../components/footer/footer';
