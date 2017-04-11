@@ -74,12 +74,12 @@
 
         $scope.$on('leafletDirectiveMarker.click', function(event, args) {
           $scope.openinfowindow = true;
-          $scope.infocontent = args.model;
-          console.log('args', args.model.id)
+          //console.log('args', args.model.id)
           angular.forEach($scope.data, function(value, key) {
             //console.log("value", value);
             if (value._id == args.model.id) {
-              console.log("nilai", value);
+              $scope.infocontent = value;
+              //console.log("nilai", value);
             }
           });
         });
