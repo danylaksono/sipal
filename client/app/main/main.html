@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="mapcontainer">
-    <leaflet height="800px"  width="100%" center="$ctrl.map.center" layers="$ctrl.map.layers"></leaflet>
+    <leaflet height="800px"  width="100%" center="$ctrl.map.center" event-broadcast="$ctrl.map.events"
+    markers="$ctrl.markers" layers="$ctrl.map.layers"></leaflet>
   </div>
   </div>
 </div>
