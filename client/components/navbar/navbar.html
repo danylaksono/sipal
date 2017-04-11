@@ -7,10 +7,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a ng-hide="nav.sidenavOpened" class="btn btn-lg" ng-click="nav.openNav()">
+      <a ng-hide="nav.sidenavOpened" class="btn btn-lg" ng-click="nav.toggleSidebar('open')">
         <i class="navbar-icon fa fa-tasks fa-2x pull-left"></i>
       </a>
-      <a ng-show="nav.sidenavOpened" class="btn btn-lg" ng-click="nav.closeNav()">
+      <a ng-show="nav.sidenavOpened" class="btn btn-lg" ng-click="nav.toggleSidebar('close')">
         <i class="navbar-icon fa fa-caret-left fa-2x pull-left"></i>
       </a>
 
@@ -28,7 +28,9 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a class="btn btn-lg" ui-sref="signup"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Daftar</a></li>
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a class="btn btn-lg" ui-sref="login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Masuk</a></li>
-        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Selamat Datang {{ nav.getCurrentUser().name }}</p> </li>
+        <li ng-show="nav.isLoggedIn()">
+          <p class="navbar-text">Selamat Datang {{ nav.getCurrentUser().name }}</p>
+        </li>
         <!--li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li-->
         <li ng-show="nav.isLoggedIn()"><a class="btn btn-lg" ui-sref="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Keluar</a></li>
       </ul>
@@ -43,28 +45,37 @@
 
 <div class="sidenav" ng-show="nav.sidenavOpened">
   <div class="container">
-      <div class="row">
-        <button type="button" class="btn btn-primary btn-outline btn-lg btn-block">Block level button</button>
-        <button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
-        <hr>
+    <div class="row">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Cari</button>
+      </span>
       </div>
-      <div class="row">
-        <div class="form-group">
-          <div class="checkbox">
-            <label>
+      <!-- /input-group -->
+      <br>
+      <button type="button" class="btn btn-primary btn-outline btn-lg btn-block" ng-click="MainController.tester()">
+        Block level button</button>
+      <button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
               <input type="checkbox"> Notifications
             </label>
-          </div>
-          <p class="help-block">Notify me about updates to apps or games that I've downloaded</p>
         </div>
-        <div class="form-group">
-          <div class="checkbox">
-            <label>
+        <p class="help-block">Notify me about updates to apps or games that I've downloaded</p>
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label>
               <input type="checkbox" checked=""> Auto-updates
             </label>
-          </div>
-          <p class="help-block">Auto-update apps over wifi only</p>
         </div>
+        <p class="help-block">Auto-update apps over wifi only</p>
       </div>
+    </div>
   </div>
 </div>

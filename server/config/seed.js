@@ -63,64 +63,64 @@ User.find({}).remove()
 Data.find({}).remove()
   .then(() => {
     Data.create({
-        nama: 'Lantamal 1/Belawan',
+        nama: 'Lantamal I/Belawan',
         lat: '3.784303',
         lng: '98.694221'
 
       }, {
-        nama: 'Lantamal 2/Padang',
+        nama: 'Lantamal II/Padang',
         lat: '-0.9470832',
         lng: '100.417181'
       }, {
-        nama: 'Lantamal 3/Jakarta',
+        nama: 'Lantamal III/Jakarta',
         lat: '-6.1744651',
         lng: '106.822745'
       }, {
-        nama: 'Lantamal 4/Tanjung Pinang',
+        nama: 'Lantamal IV/Tanjung Pinang',
         lat: '0.9185504',
         lng: '104.4665072'
       }, {
-        nama: 'Lantamal 5/Surabaya',
+        nama: 'Lantamal V/Surabaya',
         lat: '-7.2574719',
         lng: '112.7520883'
       }, {
-        nama: 'Lantamal 6/Makassar',
+        nama: 'Lantamal VI/Makassar',
         lat: '-5.1476651',
         lng: '119.4327314'
       }, {
-        nama: 'Lantamal 7/Kupang',
+        nama: 'Lantamal VII/Kupang',
         lat: '-10.1771997',
         lng: '123.6070329'
       }, {
-        nama: 'Lantamal 8/Manado',
+        nama: 'Lantamal VIII/Manado',
         lat: '1.4748305',
         lng: '124.8420794'
       }, {
-        nama: 'Lantamal 9/Ambon',
+        nama: 'Lantamal IX/Ambon',
         lat: '-3.6974',
         lng: '128.1833'
       }, {
-        nama: 'Lantamal 10/Jayapura',
+        nama: 'Lantamal X/Jayapura',
         lat: '-2.5916025',
         lng: '140.6689995'
       }, {
-        nama: 'Lantamal 11/Merauke',
+        nama: 'Lantamal XI/Merauke',
         lat: '-8.4991117',
         lng: '140.4049814'
       }, {
-        nama: 'Lantamal 12/Pontianak',
+        nama: 'Lantamal XII/Pontianak',
         lat: '-0.0263303',
         lng: '109.3425039'
       }, {
-        nama: 'Lantamal 13/Tarakan',
+        nama: 'Lantamal XIII/Tarakan',
         lat: '3.3273599',
         lng: '117.5785049'
       }, {
-        nama: 'Lantamal 14/Sorong',
+        nama: 'Lantamal XIV/Sorong',
         lat: '-0.8761629',
         lng: '131.255828'
       })
       .then(() => {
-        console.log('finished populating users');
+        console.log('finished populating data');
       });
   });

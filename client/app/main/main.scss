@@ -6,6 +6,7 @@ html {
   background-size: cover;
 }
 
+ .leaflet-control-layers { visibility: hidden !important; }
 
 .row {
   padding-top: 10px;
@@ -69,4 +70,32 @@ html {
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
+}
+
+.infowindow {
+    opacity: 0.85;
+    height: 100%; /* 100% Full-height */
+    width: 400px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 20px;
+    right: 20px;
+    background-color: white; /* Black*/
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: all linear 0.5s;
+    transform-origin: right;
+    display: block;
+}
+
+
+.infowindow .container {
+  width: 80%;
+  height: 100%;
+  padding: 30px 20px 20px 10px;
+  overflow-x: scroll; /* Disable horizontal scroll */
+}
+
+.infowindow .container .row {
+  width: 100%;
+  padding: 0px 2px 0px 15px;
 }
