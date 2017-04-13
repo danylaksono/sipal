@@ -15,11 +15,24 @@
         $scope.data = [];
         $scope.infocontent = {};
         $scope.openinfowindow = false;
+        this.icon = {
+          lantamal: {
+            type: 'awesomeMarker',
+            icon: 'flag',
+            markerColor: 'red'
+          },
+          lanal: {
+            type: 'div',
+            iconSize: [10, 10],
+            className: 'blue',
+            iconAnchor: [5, 5]
+          }
+        }
 
 
         //listening broadcasted event
         var sidenavListener = $rootScope.$on('sidenav', function(event, data) {
-          console.log(data);
+          //console.log(data);
         });
         $scope.$on('$destroy', sidenavListener);
 
@@ -41,12 +54,23 @@
               OpenMapSurfer_AdminBounds: {
                 name: 'OpenMapSurfer',
                 type: 'xyz',
+                visible: true,
                 url: 'http://korona.geog.uni-heidelberg.de/tiles/adminb/x={x}&y={y}&z={z}',
                 layerOptions: {
                   showOnSelector: false,
                   maxZoom: 19,
                   attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }
+              },
+              lantamal: {
+                type: 'group',
+                name: 'lantamal',
+                visible: true,
+              },
+              lanal: {
+                type: 'group',
+                name: 'lanal',
+                visible: true,
               }
             }
           },
@@ -106,16 +130,22 @@
           this.socket.syncUpdates('data', this.$scope.data);
           for (var i = 0; i < this.$scope.data.length; i++) {
             this.markers.push({
-              id: response.data[i]._id,
-              lat: Number(response.data[i].lat),
-              lng: Number(response.data[i].lng),
-              message: response.data[i].nama,
-              icon: {
-                type: 'awesomeMarker',
-                icon: 'flag',
-                markerColor: 'red'
-              }
+              id: this.$scope.data[i]._id,
+              layer: this.$scope.data[i].layer,
+              lat: Number(this.$scope.data[i].lat),
+              lng: Number(this.$scope.data[i].lng),
+              message: this.$scope.data[i].nama,
+              icon: {}
             });
+            //console.log(this.markers[i].layer);
+
+            if (this.markers[i].layer == 'lantamal') {
+              this.markers[i].icon = this.icon.lantamal
+            } else {
+              this.markers[i].icon = this.icon.lanal
+            }
+
+
           };
 
         });
