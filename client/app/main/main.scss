@@ -101,8 +101,14 @@ html {
 }
 
 
-.blue {
-          border-radius: 120px;
-          opacity: .75;
-          background-color: #0000FF;
-      }
+.lanal {
+  border-radius: 120px;
+  opacity: .75;
+  background-color: #0000FF;
+}
+
+.selected {
+  border-radius: 120px;
+  opacity: .75;
+  background-color: yellow;
+}

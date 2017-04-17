@@ -16,6 +16,7 @@ class NavbarController {
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
     this.rootScope = $rootScope;
+    this.cari = '';
   }
 
   toggleSidebar(state) {

@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="mapcontainer">
-      <leaflet height="800px" width="100%" center="$ctrl.map.center" event-broadcast="$ctrl.map.events" markers="$ctrl.markers" layers="$ctrl.map.layers"></leaflet>
+      <leaflet height="800px" width="100%" center="$ctrl.map.center"
+      event-broadcast="$ctrl.map.events"
+      markers="$ctrl.markers" layers="$ctrl.map.layers"></leaflet>
+       <!-- | filter:{layer:'lantamal'} -->
     </div>
   </div>
 </div>
@@ -12,7 +15,9 @@
     <h3 style="word-wrap: break-word;"> {{infocontent.nama}} </h3>
     <i style="text-align:center"> Koordinat Lat: {{infocontent.lat}} </i><br>
     <i style="text-align:center"> Koordinat Lng: {{infocontent.lng}} </i>
+    <p> Satuan Kerja: {{infocontent.induk}} </p>
     <p> {{infocontent.keterangan}} </p>
+
   </div>
 </div>
 

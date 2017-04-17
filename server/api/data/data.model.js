@@ -8,7 +8,7 @@ var DataSchema = new mongoose.Schema({
   lat: Number,
   lng: Number,
   layer: String,
-  lanal: Array,
+  induk: String,
   keterangan: String,
   gambar: String
 });
