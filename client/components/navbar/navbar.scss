@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto');
+
+
+
+
 .navbar-icon {
   vertical-align: middle;
   color:lightgrey !important;
@@ -8,6 +13,27 @@
   vertical-align: middle;
 }
 
+.logo-img {
+  min-height: 100px;
+  width: 100%;
+  display: block;
+  background-image: url("../assets/images/logo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  padding-bottom: 20px;
+}
+
+.app-title {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  display:inline-block;
+  color: white;
+}
+.app-subtitle {
+  color: cornflowerblue;
+  font-family: 'Merriweather', serif;
+}
 
 /* The side navigation menu */
 .sidenav {
@@ -21,7 +47,7 @@
     background-color: #111; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     overflow-y: hidden; /* Disable horizontal scroll */
-    padding-top: 75px; /* Place content 60px from the top */
+    padding-top: 60px; /* Place content 60px from the top */
     transition: all linear 0.5s;
     transform-origin: left;
     display: block;
@@ -30,7 +56,7 @@
 .sidenav .container {
   width: 100%;
   height: 100%;
-  padding: 80px 0px 20px 5px;
+  padding: 20px 0px 20px 5px;
 }
 
 .sidenav .container .row {
