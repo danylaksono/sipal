@@ -142,8 +142,10 @@
               if (value.induk === induk) {
                 selected.push(value);
                 $scope.infocontent.induk = value.induk;
+                /*
                 angular.element('.lanal').css('background-color',
                   'yellow');
+                  */
               }
             });
 
@@ -155,8 +157,10 @@
             args) {
             $scope.openinfowindow = false;
 
+            /*
             angular.element('.lanal').css('background-color',
               'blue');
+              */
           });
 
           $scope.$on('$destroy', function() {

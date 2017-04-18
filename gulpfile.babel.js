@@ -513,6 +513,7 @@ gulp.task('build', cb => {
       'build:images',
       'copy:extras',
       'copy:fonts',
+      'copy:fontsextra',
       'copy:assets',
       'copy:server',
       'build:client'
@@ -631,6 +632,17 @@ gulp.task('copy:fonts', () => {
       })
     .pipe(gulp.dest(`${paths.dist}/${clientPath}/bower_components`));
 });
+
+gulp.task('copy:fontsextra', () => {
+  return gulp.src(
+      `${clientPath}/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/**/*`, {
+        dot: true
+      })
+    .pipe(gulp.dest(
+      `${paths.dist}/${clientPath}/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/`
+    ));
+});
+
 
 gulp.task('copy:assets', () => {
   return gulp.src([paths.client.assets, '!' + paths.client.images])
