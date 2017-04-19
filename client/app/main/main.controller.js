@@ -13,6 +13,7 @@
           $scope.data = [];
           $scope.infocontent = {};
           $scope.openinfowindow = false;
+          $scope.gambar = []
 
           $scope.center = {
             lat: -6.866007882805485,
@@ -117,25 +118,14 @@
             }
           };
 
-          $scope.setIcon = function() {
-            for (var i = 0; i < $scope.data.length; i++) {
-              console.log($scope.data[i]);
-            }
-          }
 
           $scope.$on('leafletDirectiveMarker.click', function(event, args) {
-
             $scope.openinfowindow = true;
-            //console.log($scope.data.length)
-            //$scope.center.lat = args.model.lat;
-            //$scope.center.lng = args.model.lng;
-            //$scope.center.zoom = 16;
-
             var induk = {}
             for (var i = 0; i < $scope.data.length; i++) {
               if ($scope.data[i]._id === args.model._id) {
                 $scope.infocontent = $scope.data[i];
-                //console.log("data", $scope.data[i]);
+                $scope.gambar = $scope.data[i].gambar;
                 induk = $scope.data[i].induk;
               }
               /*

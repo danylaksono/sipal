@@ -35,7 +35,7 @@ Data.find({}).remove()
         "lat": 3.784303,
         "lng": 98.694221,
         "layer": "lantamal",
-        "gambar": "lantamal1",
+        "gambar": "lantamal1.jpg",
         "keterangan": {
           'labuhlaut': {
             'Beton': 'P=250m, L=8m',
@@ -387,8 +387,8 @@ Data.find({}).remove()
         "induk": "Lantamal XIII"
       }, {
         "nama": "Lanal 13E/Kota Baru",
-        "lat": 6.1167855,
-        "lng": 102.2776838,
+        "lat": -3.2386777,
+        "lng": 116.2233131,
         "layer": "lanal",
         "induk": "Lantamal XIII"
       }, {

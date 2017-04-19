@@ -29,7 +29,11 @@ import {
 }
 from 'isparta';
 
-var plugins = gulpLoadPlugins();
+var plugins = gulpLoadPlugins({
+  rename: {
+    'gulp-rev-keep-original-name': 'revkeep'
+  }
+});
 var config;
 
 const clientPath = require('./bower.json').appPath || 'client';
@@ -605,6 +609,7 @@ gulp.task('build:images', () => {
       interlaced: true
     }))
     .pipe(plugins.rev())
+    .pipe(plugins.revkeep())
     .pipe(gulp.dest(`${paths.dist}/${clientPath}/assets/images`))
     .pipe(plugins.rev.manifest(
       `${paths.dist}/${clientPath}/assets/rev-manifest.json`, {
