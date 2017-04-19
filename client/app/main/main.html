@@ -11,12 +11,17 @@
 
 
 <div class="infowindow" ng-show="openinfowindow">
-  <div class="container">
-    <h3 style="word-wrap: break-word;"> {{infocontent.nama}} </h3>
-    <i style="text-align:center"> Koordinat Lat: {{infocontent.lat}} </i><br>
-    <i style="text-align:center"> Koordinat Lng: {{infocontent.lng}} </i>
+  <div class="container" style="word-wrap: break-word;">
+    <h3 style="text-align:center"> {{infocontent.nama}} </h3>
+    <img class="img-data" src="../assets/images/data/{{infocontent.gambar}}.jpg"></img>
+    <p  style="text-align:center"><i> Koordinat: {{infocontent.lat}} - {{infocontent.lng}} </i></p>
+    <br>
     <p> Satuan Kerja: {{infocontent.induk}} </p>
-    <p> {{infocontent.keterangan}} </p>
+    <h4 ng-show="infocontent.keterangan"> Keterangan </h4>
+    <ul ng-repeat="(key, value) in infocontent.keterangan.labuhlaut">
+      <li> <strong>{{key}}:  </strong> {{value}}</li>
+    </ul>
+
 
   </div>
 </div>

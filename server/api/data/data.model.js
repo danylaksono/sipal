@@ -9,7 +9,7 @@ var DataSchema = new mongoose.Schema({
   lng: Number,
   layer: String,
   induk: String,
-  keterangan: String,
+  keterangan: mongoose.Schema.Types.Mixed,
   gambar: String
 });
 

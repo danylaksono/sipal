@@ -4,7 +4,7 @@
 
     class MainController {
 
-      constructor($http, $scope, $rootScope, socket, $filter) {
+      constructor($http, $scope, $rootScope, socket) {
           this.$http = $http;
           this.socket = socket;
           this.$scope = $scope;
@@ -229,6 +229,6 @@
       })
       .config(function($logProvider) {
         $logProvider.debugEnabled(false);
-      });
+      })
 
   })();
