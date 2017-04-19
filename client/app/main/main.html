@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="mapcontainer">
-      <leaflet height="800px" width="100%" center="$ctrl.map.center"
+      <leaflet height="800px" width="100%" center="center"
       event-broadcast="$ctrl.map.events"
-      markers="$ctrl.markers" layers="$ctrl.map.layers"></leaflet>
+      markers="data" layers="$ctrl.map.layers"></leaflet>
        <!-- | filter:{layer:'lantamal'} -->
     </div>
   </div>
@@ -18,11 +18,10 @@
     <br>
     <p> Satuan Kerja: {{infocontent.induk}} </p>
     <h4 ng-show="infocontent.keterangan"> Keterangan </h4>
+    <p ng-show="infocontent.keterangan.labuhlaut"> <strong>Labuh Laut </strong></p>
     <ul ng-repeat="(key, value) in infocontent.keterangan.labuhlaut">
-      <li> <strong>{{key}}:  </strong> {{value}}</li>
+      <li> <strong>{{key}}:</strong> {{value}}</li>
     </ul>
-
-
   </div>
 </div>
 

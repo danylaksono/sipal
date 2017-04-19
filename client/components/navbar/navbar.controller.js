@@ -40,6 +40,10 @@ class NavbarController {
     this.sidenavOpened = false;
   }
 
+  closeThis() {
+    console.log(this.sidenavOpened);
+  }
+
 }
 
 angular.module('sipalApp')

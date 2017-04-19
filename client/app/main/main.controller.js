@@ -13,6 +13,13 @@
           $scope.data = [];
           $scope.infocontent = {};
           $scope.openinfowindow = false;
+
+          $scope.center = {
+            lat: -6.866007882805485,
+            lng: 117.44335937499999,
+            zoom: 5
+          };
+
           this.icon = {
             lantamal: {
               type: 'awesomeMarker',
@@ -24,14 +31,9 @@
               iconSize: [10, 10],
               className: 'lanal',
               iconAnchor: [5, 5]
-            },
-            selected: {
-              type: 'div',
-              iconSize: [10, 10],
-              className: 'selected',
-              iconAnchor: [5, 5]
             }
           };
+
 
           this.addData = function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -91,19 +93,14 @@
                 lantamal: {
                   type: 'group',
                   name: 'lantamal',
-                  visible: true,
+                  visible: true
                 },
                 lanal: {
                   type: 'group',
                   name: 'lanal',
-                  visible: true,
+                  visible: true
                 }
               }
-            },
-            center: {
-              lat: -6.866007882805485,
-              lng: 117.44335937499999,
-              zoom: 5
             },
             controls: {},
             events: {
@@ -120,44 +117,80 @@
             }
           };
 
-          this.changeIcon = function(data, icon) {
-            for (var i = 0; i < data.length; i++) {
-              data.icon = this.icon.icon
+          $scope.setIcon = function() {
+            for (var i = 0; i < $scope.data.length; i++) {
+              console.log($scope.data[i]);
             }
           }
 
           $scope.$on('leafletDirectiveMarker.click', function(event, args) {
 
             $scope.openinfowindow = true;
+            //console.log($scope.data.length)
+            //$scope.center.lat = args.model.lat;
+            //$scope.center.lng = args.model.lng;
+            //$scope.center.zoom = 16;
 
             var induk = {}
-            var selected = [];
-            angular.forEach($scope.data, function(value, key) {
-              //console.log("value", value);
-              if (value._id === args.model.id) {
-                $scope.infocontent = value;
-                //console.log("induk", value.induk);
-                induk = value.induk;
+            for (var i = 0; i < $scope.data.length; i++) {
+              if ($scope.data[i]._id === args.model._id) {
+                $scope.infocontent = $scope.data[i];
+                //console.log("data", $scope.data[i]);
+                induk = $scope.data[i].induk;
               }
-              if (value.induk === induk) {
-                selected.push(value);
-                $scope.infocontent.induk = value.induk;
-                /*
-                angular.element('.lanal').css('background-color',
-                  'yellow');
-                  */
-              }
-            });
+              /*
+              if ($scope.data[i].induk === induk) {
+                //selected.push(value);
+                $scope.infocontent.induk = $scope.data[i].induk;
+                $scope.data.selected = true;
+                $scope.data[i].icon = {
+                  type: 'div',
+                  iconSize: [10, 10],
+                  className: 'selected',
+                  iconAnchor: [5, 5]
+                }
 
-            //console.log("induk", selected);
-            //this.tester();
+              } */
+
+            } //for
+
+            /*
+              angular.forEach($scope.data, function(value, key) {
+                //console.log("value", value);
+                if (value._id === args.model._id) {
+                  $scope.infocontent = value;
+                  console.log("induk", value.induk);
+                  induk = value.induk;
+                }
+                if (value.induk === induk) {
+                  selected.push(value);
+                  $scope.infocontent.induk = value.induk;
+                  $scope.data.icon = this.icon.selected;
+
+            }
+          });
+          */
+
           });
 
           $scope.$on('leafletDirectiveMarker.popupclose', function(event,
             args) {
-            $scope.openinfowindow = false;
 
+            $scope.openinfowindow = false;
             /*
+            for (var i = 0; i < $scope.data.length; i++) {
+              if ($scope.data[i].selected == true) {
+                $scope.data[i].selected = false;
+                $scope.data[i].icon = {
+                  type: 'div',
+                  iconSize: [10, 10],
+                  className: 'lanal',
+                  iconAnchor: [5, 5]
+                }
+              }
+            };
+
+
             angular.element('.lanal').css('background-color',
               'blue');
               */
@@ -177,31 +210,19 @@
         this.$http.get('/api/datas')
           .then(response => {
             this.$scope.data = response.data;
+            //console.log(this.$scope.data);
             this.socket.syncUpdates('data', this.$scope.data);
-            this.addData(this.$scope.data);
-
-            /*
             for (var i = 0; i < this.$scope.data.length; i++) {
-              this.markers.push({
-                id: this.$scope.data[i]._id,
-                layer: this.$scope.data[i].layer,
-                lat: Number(this.$scope.data[i].lat),
-                lng: Number(this.$scope.data[i].lng),
-                message: this.$scope.data[i].nama,
-                icon: {}
-              });
-
-              //console.log(this.markers[i].layer);
-
-              if (this.markers[i].layer == 'lantamal') {
-                this.markers[i].icon = this.icon.lantamal
+              this.$scope.data[i].message = this.$scope.data[i].nama;
+              if (this.$scope.data[i].layer == 'lantamal') {
+                this.$scope.data[i].icon = this.icon.lantamal
               } else {
-                this.markers[i].icon = this.icon.lanal
+                this.$scope.data[i].icon = this.icon.lanal
               }
 
-
-            };
-            */
+              //console.log(this.$scope.data[i]);
+            }
+            //this.addData(this.$scope.data);
           });
 
 

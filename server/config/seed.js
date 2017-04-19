@@ -35,12 +35,11 @@ Data.find({}).remove()
         "lat": 3.784303,
         "lng": 98.694221,
         "layer": "lantamal",
-        "induk": "Lantamal I",
         "gambar": "lantamal1",
         "keterangan": {
           'labuhlaut': {
             'Beton': 'P=250m, L=8m',
-            'Kapasitas (Ton)': 3000,
+            'Kapasitas': 3000,
             'Sandar': 'Mampu disandari  KRI Klas Parchim, Coundor, Frosch LST Korea',
             'Kondisi': '70% (200 meter lama), 100% penambahan 50 meter baru'
           }
@@ -49,80 +48,67 @@ Data.find({}).remove()
         "nama": "Lantamal 2/Padang",
         "lat": -0.9470832,
         "lng": 100.417181,
-        "layer": "lantamal",
-        "induk": "Lantamal II"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 3/Jakarta",
         "lat": -6.1744651,
         "lng": 106.822745,
-        "layer": "lantamal",
-        "induk": "Lantamal III"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 4/Tanjungpinang Riau",
         "lat": 0.9185504,
         "lng": 104.4665072,
-        "layer": "lantamal",
-        "induk": "Lantamal IV"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 5/Surabaya",
         "lat": -7.2574719,
         "lng": 112.7520883,
-        "layer": "lantamal",
-        "induk": "Lantamal V"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 6/Makassar",
         "lat": -5.1476651,
         "lng": 119.4327314,
-        "layer": "lantamal",
-        "induk": "Lantamal VI"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 7/Kupang",
         "lat": -10.1771997,
         "lng": 123.6070329,
-        "layer": "lantamal",
-        "induk": "Lantamal VII"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 8/Manado",
         "lat": 1.4748305,
         "lng": 124.8420794,
-        "layer": "lantamal",
-        "induk": "Lantamal VIII"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 9/Tarakan",
         "lat": 3.3273599,
         "lng": 117.5785049,
-        "layer": "lantamal",
-        "induk": "Lantamal IX"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 10/Jayapura",
         "lat": -2.5916025,
         "lng": 140.6689995,
-        "layer": "lantamal",
-        "induk": "Lantamal X"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 11/Merauke",
         "lat": -8.4991117,
         "lng": 140.4049814,
-        "layer": "lantamal",
-        "induk": "Lantamal XI"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 12/Pontianak",
         "lat": -0.0263303,
         "lng": 109.3425039,
-        "layer": "lantamal",
-        "induk": "Lantamal XII"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 13/Ambon",
         "lat": -3.6553932,
         "lng": 128.1907723,
-        "layer": "lantamal",
-        "induk": "Lantamal XIII"
+        "layer": "lantamal"
       }, {
         "nama": "Lantamal 14/Sorong",
         "lat": -0.8761629,
         "lng": 131.255828,
-        "layer": "lantamal",
-        "induk": "Lantamal XIV"
+        "layer": "lantamal"
       }, {
         "nama": "Lanal 1A/Sabang",
         "lat": 5.8926053,
