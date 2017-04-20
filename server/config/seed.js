@@ -36,6 +36,9 @@ Data.find({}).remove()
         "lng": 98.694221,
         "layer": "lantamal",
         "gambar": "lantamal1.jpg",
+        "lanal": ['Lanal 1A/Sabang', 'Lanal 1B/Dumai',
+          'Lanal 1C/Lhokseumawe', 'Lanal 1D/Tanjung Balai Asahan'
+        ],
         "keterangan": {
           'labuhlaut': {
             'Beton': 'P=250m, L=8m',

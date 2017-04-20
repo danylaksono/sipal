@@ -4,11 +4,12 @@
 
     class MainController {
 
-      constructor($http, $scope, $rootScope, socket) {
+      constructor($http, $scope, $rootScope, leafletData, socket) {
           this.$http = $http;
           this.socket = socket;
           this.$scope = $scope;
           this.rootScope = $rootScope;
+          this.leafletData = leafletData;
           this.markers = new Array();
           $scope.data = [];
           $scope.infocontent = {};
@@ -106,7 +107,7 @@
             controls: {},
             events: {
               marker: {
-                enable: ['click'],
+                enable: ['click', 'popupopen', 'popupclose'],
                 logic: 'emit'
               },
               map: {
@@ -118,72 +119,65 @@
             }
           };
 
+          $scope.selectMarker = function(markerArr) {
+            markerArr.forEach(function(element) {
+              //console.log(element);
+            });
+          };
 
-          $scope.$on('leafletDirectiveMarker.click', function(event, args) {
-            $scope.openinfowindow = true;
-            var induk = {}
+          $scope.findMarker = function(marker) {
+            //console.log(marker);
             for (var i = 0; i < $scope.data.length; i++) {
-              if ($scope.data[i]._id === args.model._id) {
-                $scope.infocontent = $scope.data[i];
-                $scope.gambar = $scope.data[i].gambar;
-                induk = $scope.data[i].induk;
-              }
-              /*
-              if ($scope.data[i].induk === induk) {
-                //selected.push(value);
-                $scope.infocontent.induk = $scope.data[i].induk;
-                $scope.data.selected = true;
+              if ($scope.data[i].nama == marker) {
+                $scope.data[i].selected = true;
+                console.log($scope.data[i].icon);
                 $scope.data[i].icon = {
                   type: 'div',
                   iconSize: [10, 10],
                   className: 'selected',
                   iconAnchor: [5, 5]
-                }
-
-              } */
-
-            } //for
-
-            /*
-              angular.forEach($scope.data, function(value, key) {
-                //console.log("value", value);
-                if (value._id === args.model._id) {
-                  $scope.infocontent = value;
-                  console.log("induk", value.induk);
-                  induk = value.induk;
-                }
-                if (value.induk === induk) {
-                  selected.push(value);
-                  $scope.infocontent.induk = value.induk;
-                  $scope.data.icon = this.icon.selected;
-
+                };
+              }
             }
-          });
-          */
+          }
 
-          });
 
-          $scope.$on('leafletDirectiveMarker.popupclose', function(event,
-            args) {
 
-            $scope.openinfowindow = false;
-            /*
+          $scope.$on('leafletDirectiveMarker.click', function(event, args) {
+            $scope.openinfowindow = true;
+            var induk = {};
+            var listLanal = [];
             for (var i = 0; i < $scope.data.length; i++) {
-              if ($scope.data[i].selected == true) {
-                $scope.data[i].selected = false;
-                $scope.data[i].icon = {
-                  type: 'div',
-                  iconSize: [10, 10],
-                  className: 'lanal',
-                  iconAnchor: [5, 5]
+              if ($scope.data[i]._id === args.model._id) {
+                $scope.infocontent = $scope.data[i];
+                $scope.gambar = $scope.data[i].gambar;
+                induk = $scope.data[i].induk;
+                if ($scope.data[i].lanal) {
+                  listLanal = $scope.data[i].lanal;
+                  $scope.selectMarker(listLanal);
+                  //console.log(listLanal.includes('Lanal 1B/Dumai'));
                 }
               }
-            };
+            } //for
 
+          });
 
-            angular.element('.lanal').css('background-color',
-              'blue');
-              */
+          $scope.$on('leafletDirectiveMarker.popupclose', function(
+            event,
+            args) {
+            $scope.openinfowindow = false;
+            for (var i = 0; i < $scope.data.length; i++) {
+              if ($scope.data[i].selected) {
+                $scope.data[i].selected = false;
+                $scope.data[i].icon = {
+                    type: 'div',
+                    iconSize: [10, 10],
+                    className: 'lanal',
+                    iconAnchor: [5, 5]
+                  }
+                  //console.log()
+              }
+            }
           });
 
           $scope.$on('$destroy', function() {

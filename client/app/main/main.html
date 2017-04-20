@@ -16,7 +16,12 @@
     <img class="img-data" src="../assets/images/data/{{gambar}}"></img>
     <p  style="text-align:center"><i> Koordinat: {{infocontent.lat}} - {{infocontent.lng}} </i></p>
     <br>
-    <p> Satuan Kerja: {{infocontent.induk}} </p>
+    <p ng-if="infocontent.lanal"> Wilayah Kerja:
+      <span ng-repeat="lanal in infocontent.lanal" >
+        <a href=# ng-click="findMarker(lanal)">
+      {{lanal}} </a>|
+      </span>
+    </p>
     <h4 ng-show="infocontent.keterangan"> Keterangan </h4>
     <p ng-show="infocontent.keterangan.labuhlaut"> <strong>Labuh Laut </strong></p>
     <ul ng-repeat="(key, value) in infocontent.keterangan.labuhlaut">
